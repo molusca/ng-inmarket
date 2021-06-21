@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +8,16 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  collapsed = true;
+  @Output() paramEmitter = new EventEmitter<string>();
+  public collapsed: boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setParam(param: string) {
+    this.paramEmitter.emit(param);
   }
 
 }
