@@ -1,3 +1,4 @@
+import { Recipe } from './recipe.model';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -8,9 +9,15 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
+  public selectedRecipe: Recipe;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showRecipeDetail(event) {
+    this.selectedRecipe = event;
   }
 
 }
